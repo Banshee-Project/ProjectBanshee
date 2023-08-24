@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LancamentosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::prefix('lancamentos')->group(function () {
+    Route::get('/', [LancamentosController::class, 'index'])->name('lancamento.index');    
+}); 
