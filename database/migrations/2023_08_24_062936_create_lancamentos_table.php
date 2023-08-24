@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('lancamentos', function (Blueprint $table) {
             $table->id();
-            $table->int('tipo_lancamento_id')->nullable();
             $table->string('nome');
             $table->decimal('valor', 10, 2);
             $table->timestamps();
