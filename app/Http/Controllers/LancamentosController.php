@@ -9,7 +9,7 @@ class LancamentosController extends Controller
 {
     public function index () {
         $findLancamento = Lancamento::all();
-        dd($findLancamento);
-        return 'lancamentos';
+
+        return view('pages.lancamentos.paginacao', compact('findLancamento'));
     }
 }
