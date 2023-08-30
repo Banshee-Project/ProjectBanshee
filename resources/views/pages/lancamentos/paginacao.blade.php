@@ -16,7 +16,7 @@
         <form action="{{ route('lancamento.index') }}" method="get">
             <input type="text" name="pesquisar" placeholder="Pesquisar pelo nome..." />
             <button> Pesquisar </button>
-            <a type="button" href="" class="btn btn-success float-end">
+            <a type="button" href="{{ route('cadastrar.lancamento') }}" class="btn btn-success float-end">
                 Adicionar lançamento
             </a>
         </form>
@@ -47,7 +47,8 @@
                                 <a href="" class="btn btn-light btn-sm">
                                     Editar
                                 </a>
-                                <a href="{{ route('lancamento.delete') }}" class="btn btn-danger btn-sm">
+                                <meta name='csrf-token' content=" {{ csrf_token() }}"/>
+                                <a onclick="deleteRegistroPaginacao(' {{ route('lancamento.delete') }} ', {{ $lancamento->id }} )" class="btn btn-danger btn-sm">
                                     Excluir
                                 </a>
                             </td>

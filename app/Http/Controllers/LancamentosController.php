@@ -20,6 +20,22 @@ class LancamentosController extends Controller
     }
 
     public function delete (Request $request) {
+        $id = $request->id;
+        $buscaRegistro = Lancamento::find($id);
+        $buscaRegistro->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function cadastrarLancamento(Request $request) {
         
+        if ($request->method() == "POST") {
+            $data = $request->all();
+            Lancamento::create($data);
+            
+            return redirect()->route('lancamento.index');
+        } 
+
+        return view('pages.lancamentos.create');
     }
 }

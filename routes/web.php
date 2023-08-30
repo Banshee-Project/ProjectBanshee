@@ -20,5 +20,8 @@ Route::get('/', function () {
 
 Route::prefix('lancamentos')->group(function () {
     Route::get('/', [LancamentosController::class, 'index'])->name('lancamento.index');    
+    Route::get('/cadastrarLancamento', [LancamentosController::class, 'cadastrarLancamento'])->name('cadastrar.lancamento');    
+    Route::post('/cadastrarLancamento', [LancamentosController::class, 'cadastrarLancamento'])->name('cadastrar.lancamento');    
+    
     Route::delete('/delete', [LancamentosController::class, 'delete'])->name('lancamento.delete');    
 }); 
