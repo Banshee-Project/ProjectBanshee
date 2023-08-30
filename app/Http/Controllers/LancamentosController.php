@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormRequestLancamento;
 use Illuminate\Http\Request;
+use App\Models\Componentes;
 use App\Models\Lancamento;
 
 class LancamentosController extends Controller
@@ -27,15 +29,17 @@ class LancamentosController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarLancamento(Request $request) {
+    public function cadastrarLancamento(FormRequestLancamento $request) {
         
         if ($request->method() == "POST") {
             $data = $request->all();
+            $componentes = new Componentes();
+            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Lancamento::create($data);
-            
+
             return redirect()->route('lancamento.index');
         } 
-
+        
         return view('pages.lancamentos.create');
     }
 }
