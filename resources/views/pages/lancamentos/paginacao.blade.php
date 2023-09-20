@@ -44,7 +44,7 @@
                             <td>{{$lancamento->nome}}</td> 
                             <td>{{'R$' . ' ' . number_format($lancamento->valor, 2, ',', '.') }}</td>
                             <td>
-                                <a href="" class="btn btn-light btn-sm">
+                                <a href="{{ route('atualizar.lancamento', $lancamento->id) }}" class="btn btn-light btn-sm">
                                     Editar
                                 </a>
                                 <meta name='csrf-token' content=" {{ csrf_token() }}"/>

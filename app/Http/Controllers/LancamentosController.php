@@ -42,4 +42,21 @@ class LancamentosController extends Controller
         
         return view('pages.lancamentos.create');
     }
+
+    public function atualizarLancamento(FormRequestLancamento $request, $id) {
+        
+        if ($request->method() == "PUT") {
+            $data = $request->all();
+            $componentes = new Componentes();
+            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+
+            $buscaRegistro = Lancamento::find($id); 
+            $buscaRegistro->update($data);
+
+            return redirect()->route('lancamento.index');
+        } 
+        
+        $findLancamento = Lancamento::where('id', '=', $id)->first();
+        return view('pages.lancamentos.atualiza', compact('findLancamento'));
+    }
 }
