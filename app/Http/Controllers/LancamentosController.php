@@ -33,8 +33,8 @@ class LancamentosController extends Controller
         
         if ($request->method() == "POST") {
             $data = $request->all();
-            $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+            // $componentes = new Componentes();
+            $data['valor']; //= $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Lancamento::create($data);
 
             return redirect()->route('lancamento.index');
@@ -47,8 +47,8 @@ class LancamentosController extends Controller
         
         if ($request->method() == "PUT") {
             $data = $request->all();
-            $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+            // $componentes = new Componentes();
+            $data['valor']; //= $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
 
             $buscaRegistro = Lancamento::find($id); 
             $buscaRegistro->update($data);

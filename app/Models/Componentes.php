@@ -9,22 +9,22 @@ class Componentes extends Model
 {
     use HasFactory;
 
-    public function formatacaoMascaraDinheiroDecimal($valorParaFormatar) {
-        $tamanho = strlen($valorParaFormatar);
-        $dados = str_replace(',', '.', $valorParaFormatar);
+    // public function formatacaoMascaraDinheiroDecimal($valorParaFormatar) {
+    //     $tamanho = strlen($valorParaFormatar);
+    //     $dados = str_replace(',', '.', $valorParaFormatar);
 
-        if ($tamanho <= 6) {
-            $dados = str_replace(',', '.', $valorParaFormatar);
-        } else {
-            if ($tamanho >= 8) {
-                $retiraVirgulaPorPonto = str_replace(',', '.', $valorParaFormatar);
-                $separaPorIndice = explode('.', $retiraVirgulaPorPonto);
-                $dados = $separaPorIndice[0] . $separaPorIndice[1];
+    //     if ($tamanho <= 6) {
+    //         $dados = str_replace(',', '.', $valorParaFormatar);
+    //     } else {
+    //         if ($tamanho >= 8) {
+    //             $retiraVirgulaPorPonto = str_replace(',', '.', $valorParaFormatar);
+    //             $separaPorIndice = explode('.', $retiraVirgulaPorPonto);
+    //             $dados = $separaPorIndice[0] . $separaPorIndice[1];
 
-            }
-        }
+    //         }
+    //     }
 
-        return $dados;
-    }
+    //     return $dados;
+    // }
 
 }
