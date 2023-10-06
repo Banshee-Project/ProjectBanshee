@@ -49,7 +49,7 @@
                             <td>{{$pessoa->email}}</td> 
                             <td>{{$pessoa->endereco}}</td> 
                             <td>{{$pessoa->logradouro}}</td> 
-                            <td>{{$pessoa->CEP}}</td> 
+                            <td>{{$pessoa->cep}}</td> 
                             <td>{{$pessoa->bairro}}</td> 
                             <td>
                                 <a href="{{ route('atualizar.pessoas', $pessoa->id) }}" class="btn btn-light btn-sm">
