@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LancamentosController;
+use App\Http\Controllers\PessoasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,16 @@ Route::prefix('lancamentos')->group(function () {
     Route::put('/atualizarLancamento/{id}', [LancamentosController::class, 'atualizarLancamento'])->name('atualizar.lancamento');
 
     Route::delete('/delete', [LancamentosController::class, 'delete'])->name('lancamento.delete');    
+}); 
+
+Route::prefix('pessoas')->group(function () {
+    Route::get('/', [PessoasController::class, 'index'])->name('pessoas.index');    
+    // Cadastrar
+    Route::get('/cadastrarPessoa', [PessoasController::class, 'cadastrarPessoa'])->name('cadastrar.pessoas');    
+    Route::post('/cadastrarPessoa', [PessoasController::class, 'cadastrarPessoa'])->name('cadastrar.pessoas');    
+    // Atualizar
+    Route::get('/atualizarPessoa/{id}', [PessoasController::class, 'atualizarPessoa'])->name('atualizar.pessoas');    
+    Route::put('/atualizarPessoa/{id}', [PessoasController::class, 'atualizarPessoa'])->name('atualizar.pessoas');
+
+    Route::delete('/delete', [PessoasController::class, 'delete'])->name('pessoas.delete');    
 }); 
