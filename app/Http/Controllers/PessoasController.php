@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormRequestPessoas;
 use Illuminate\Http\Request;
 use App\Models\Pessoa;
 
@@ -27,12 +28,10 @@ class PessoasController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarPessoa(Request $request) {
+    public function cadastrarPessoa(FormRequestPessoas $request) {
         
         if ($request->method() == "POST") {
             $data = $request->all();
-            // $componentes = new Componentes();
-            $data['valor']; //= $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Pessoa::create($data);
 
             return redirect()->route('pessoas.index');
@@ -41,12 +40,10 @@ class PessoasController extends Controller
         return view('pages.pessoas.create');
     }
 
-    public function atualizarPessoa(Request $request, $id) {
+    public function atualizarPessoa(FormRequestPessoas $request, $id) {
         
         if ($request->method() == "PUT") {
             $data = $request->all();
-            // $componentes = new Componentes();
-            $data['valor']; //= $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
 
             $buscaRegistro = Pessoa::find($id); 
             $buscaRegistro->update($data);
