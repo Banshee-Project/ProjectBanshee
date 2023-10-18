@@ -11,7 +11,7 @@ class FormRequestLancamentoVinculo extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,15 @@ class FormRequestLancamentoVinculo extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $request = [];
+
+        if ($this->method() == "POST" || $this->method() == "PUT") {
+            $request = [
+                'lancamento_id' => 'required',
+                'pessoa_id' => 'required'
+            ];
+        }
+
+        return $request;
     }
 }

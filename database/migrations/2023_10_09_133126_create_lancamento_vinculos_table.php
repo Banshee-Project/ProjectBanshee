@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('lancamento_vinculos', function (Blueprint $table) {
             $table->id();
+            $table->integer('numero_do_vinculo');
+            $table->foreignId('lancamento_id')->constrained('lancamentos');
+            $table->foreignId('pessoa_id')->constrained('pessoas');
             $table->timestamps();
         });
     }

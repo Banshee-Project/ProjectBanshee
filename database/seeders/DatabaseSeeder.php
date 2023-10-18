@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LancamentosSeeder::class,
-            PessoasSeeder::class
+            PessoasSeeder::class,
+            LancamentoVinculosSeeder::class
         ]);
     }
 }

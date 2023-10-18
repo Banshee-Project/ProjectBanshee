@@ -16,7 +16,14 @@ class LancamentosSeeder extends Seeder
         Lancamento::create(
             [
                 'nome' => 'Pagamento do condominio 1',
-                'valor' => '569.00'
+                'valor' => '569.81'
+            ]
+        );
+
+        Lancamento::create(
+            [
+                'nome' => 'Pagamento do condominio 2',
+                'valor' => '607.35'
             ]
         );
     }

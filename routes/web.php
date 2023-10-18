@@ -42,3 +42,10 @@ Route::prefix('pessoas')->group(function () {
 
     Route::delete('/delete', [PessoasController::class, 'delete'])->name('pessoas.delete');    
 }); 
+
+Route::prefix('lancamentoVinculos')->group(function () {
+    Route::get('/', [LancamentoVinculosController::class, 'index'])->name('lancamentoVinculos.index');    
+    // Cadastrar
+    Route::get('/cadastrarLancamentoVinculo', [LancamentoVinculosController::class, 'cadastrarLancamentoVinculo'])->name('cadastrar.LancamentoVinculos');    
+    Route::post('/cadastrarLancamentoVinculo', [LancamentoVinculosController::class, 'cadastrarLancamentoVinculo'])->name('cadastrar.LancamentoVinculos');     
+}); 
